@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" href="avatar.png">
+   <link rel="stylesheet" href="css/reset.css">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Lesson 24</title>
+</head>
+<body>
+   <div class="wrapper">
+     <header class="header">
+      <h1>Основи JavaScript</h1>
+
+      </header>
+      <main class="page">
+         <div class="page__container">
+            <article class="page__block">
+               <h2>Домашка №1  JS  "Функції" </h2>
+               <h3>//задача 1</h3>
+               <p>перший у консоль попаде 'Kolja', функція буде виконана після завершення роботи setTimeout</p>
+               <mark>function showName() {
+               console.log('Vasja');
+               }
+               setTimeout(showName, 0);
+               console.log('Kolja');</mark>
+
+               <h3>//задача 2</h3>
+               <p>функція визвана вірно</p> 
+               <mark>showMessage();
+               function showMessage() {
+               console.log('Message');
+               }</mark>
+
+               <h3>//задача 3</h3>
+               <p>помилка - функція оголошена до її виконання. Функції, оголошені за допомогою Function Expression, створюються тільки тоді, коли потік виконання досягає їх.</p>
+               <mark>showMessage();
+               let showMessage = function () {
+               console.log('Message');
+               }</mark>
+               <h3>//задача 4</h3>
+               <p>функція визвана за межами блоку, тому і оголошуємо змінну за межами блоку </p>
+               <mark>let showMessage;
+               
+               if (2 > 1) {
+               showMessage = function () {
+               console.log('Message');
+               };
+               }
+               showMessage();</mark>
+            </article>
+
+            <article class="page__block">
+               <h2> Домашка №2  JS "Масиви"</h2>
+               <h3>//задача 1</h3>
+               <p>відповідь- 4</p>
+               <mark>let arr = ['Ваня', 'Іштван', 'Оля',];
+               let newArr = arr;
+               newArr.push('Петро');
+               console.log(arr.length);</mark>
+
+               <h3>//задача 2 </h3>
+               <mark>let users = ['Ваня', 'Іштван',];
+               users.push('Оля');
+               users.splice(1, 1, 'Петро');
+               let remowed = users.splice(1, 1);
+               console.log(remowed);
+               users.splice(0, 0, 'Маша', 'Паша',);
+               console.log(users);</mark>
+
+               <h3>//задача 3 </h3>
+               <p>видаляємо елемент методом ".splice" і призначаємо видаленому елементу нову зміну </p>
+               <mark>let str = ['Ваня', 'Іштван', 'Оля',];
+               let remowed = str.splice(1, 1);
+               console.log(remowed);</mark>
+               <h3>//задача 4</h3>
+               <p>рядок переводимо у масив за допомогою ".split" </p>
+               <mark>let str = 'Ваня,Іштван,Оля';
+               let arr = str.split(',');
+               console.log(arr);</mark>
+               <h3>//задача 5 </h3>
+               <p>previousValue на початку роботи = 9</p>
+               <mark>let arr = [9, 2, 8,];
+               let reduceValue = arr.reduce(function (previousValue, item, index, array) {
+               console.log(previousValue);
+               });</mark>
+            </article>
+
+            <article class="page__block">
+               <h2> Домашка №3  JS  "DOM"</h2>
+               <h3>//задача 1</h3>
+               <div data-say-hi="yes"> Привіт!</div>
+               <mark>const getElement = document.querySelectorAll('[data-say-hi="yes"]');</mark>
+              
+               <h3>//задача 2</h3>
+               <ul>
+                  <li>Корчі</li>
+                  <li>Йончі</li>
+               </ul>
+               <mark>const elem = document.querySelectorAll('li');
+               console.log(elem[1]);</mark>
+               <h3>///задача 3</h3>
+               <div class="like"></div>
+               <div class="subscribe"></div>
+               <div class="like subscribe"></div>
+               <mark>const elems = document.querySelectorAll('.like');
+               console.log(elems);</mark>
+
+               <h3>//задача 4</h3>
+               <p>'Текст' додасться після останнього дочірнього елемента, але так буде працювати з методом пошуку "document.querySelector", а у завданні зазначений "querySelectorAll", що викличе помилку</p>
+               <ul>
+                  <li>Пункт 1</li>
+                  <li>Пункт 2</li>
+               </ul>
+               <mark> </mark>
+            </article>
+            <article class="page__block">
+               <h2> Домашка №4 JS "Розміри прокрутки та координати"</h2>
+               <h3>//задача 1</h3>
+               <p>ширина прокрутки = windowWidth - mainElementWidth</p>
+               <mark>const mainElement = document.documentElement;
+               const mainElementWidth = mainElement.clientWidth;
+               const windowWidth = window.innerWidth;
+               console.log(mainElementWidth);
+               console.log(windowWidth);</mark>
+               <h3>//задача 2</h3>
+               <mark>function scrollPage() {
+               window.scrollTo({
+               top: 100,
+               left: 0,
+               behavior: "smooth"
+               })
+               };
+               setTimeout(scrollPage, 1000);</mark>
+               <h3>//задача 3</h3>
+               <img src="img/flag-small.png" alt="" class="page__image">
+            </article>
+            
+         </div>
+      </main>
+      <footer class="footer">
+      </footer>
+   </div>
+   <script src="js/script.js">
+   </script>
+</body>
+</html>
